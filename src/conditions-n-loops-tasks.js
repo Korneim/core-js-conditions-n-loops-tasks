@@ -21,8 +21,11 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -38,8 +41,20 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  if (a === b && b === c) {
+    return a;
+  }
+  if (a > b && a > c) {
+    return a;
+  }
+  if (b > a && b > c) {
+    return b;
+  }
+  if (c > a && c > b) {
+    return c;
+  }
+  return 0;
 }
 
 /**
@@ -82,8 +97,12 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  return (
+    (a === b && c !== 0 && a + b >= c) ||
+    (a === c && b !== 0 && a + c >= b) ||
+    (b === c && a !== 0 && c + b >= a)
+  );
 }
 
 /**
@@ -100,8 +119,36 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  switch (num) {
+    case 1:
+      return 'I';
+    case 2:
+      return 'II';
+    case 3:
+      return 'III';
+    case 4:
+      return 'IV';
+    case 5:
+      return 'V';
+    case 8:
+      return 'VIII';
+    case 10:
+      return 'X';
+    case 13:
+      return 'XIII';
+    case 19:
+      return 'XIX';
+    case 21:
+      return 'XXI';
+    case 29:
+      return 'XXIX';
+    case 37:
+      return 'XXXVII';
+    default:
+      break;
+  }
+  return 'num';
 }
 
 /**
@@ -119,8 +166,66 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const newArr = numberStr.split('');
+  let result = '';
+  console.log(newArr);
+  if (newArr.length < 1) {
+    switch (newArr[0]) {
+      case '1':
+        result += 'one';
+        break;
+      default:
+        break;
+    }
+  } else {
+    for (let i = 0; i < newArr.length; i += 1) {
+      switch (newArr[i]) {
+        case '1':
+          result += ' one';
+          break;
+        case '2':
+          result += ' two';
+          break;
+        case '3':
+          result += ' three';
+          break;
+        case '4':
+          result += ' four';
+          break;
+        case '5':
+          result += ' five';
+          break;
+        case '6':
+          result += ' six';
+          break;
+        case '7':
+          result += ' seven';
+          break;
+        case '8':
+          result += ' eight';
+          break;
+        case '9':
+          result += ' nine';
+          break;
+        case '0':
+          result += ' zero';
+          break;
+        case '.':
+          result += ' point';
+          break;
+        case ',':
+          result += ' point';
+          break;
+        case '-':
+          result += 'minus';
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  return result;
 }
 
 /**
